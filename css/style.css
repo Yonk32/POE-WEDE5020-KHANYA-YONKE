@@ -1,0 +1,442 @@
+/* :root represents the highest-level html element.
+   It stores reusable CSS variables for the whole Services page.
+   Students must replace these example colours with their actual colours. */
+:root {
+    --primary: #123c69; /* Store the website's main colour. */
+    --primary-dark: #0b2942; /* Store a darker version for strong backgrounds. */
+    --accent: #f4b41a; /* Store the highlight and hover colour. */
+    --background: #f4f7fa; /* Store the page background colour. */
+    --surface: #ffffff; /* Store the card background colour. */
+    --text: #263238; /* Store the normal text colour. */
+    --border: #d8e2ec; /* Store the card border colour. */
+}
+
+/* Select every HTML element. */
+* {
+    box-sizing: border-box; /* Include padding and borders inside element widths. */
+}
+
+/* Style the complete visible webpage. */
+body {
+    margin: 0; /* Remove the browser's default outside spacing. */
+    background-color: var(--background); /* Use the stored background colour. */
+    color: var(--text); /* Use the stored normal text colour. */
+    font-family: Arial, Helvetica, sans-serif; /* Set readable fallback fonts. */
+    font-size: 16px; /* Set the default text size. */
+    line-height: 1.6; /* Add readable space between lines. */
+}
+
+/* Create a reusable centred content area. */
+.container {
+    width: min(90%, 1200px); /* Use 90% width but never exceed 1200px. */
+    margin-inline: auto; /* Centre the container horizontally. */
+}
+
+/* Remove normal underlines and animate link colour changes. */
+a {
+    text-decoration: none; /* Remove the browser's default underline. */
+    transition: 0.25s ease; /* Smoothly animate interaction changes. */
+}
+
+/* Style the header across the top of the Services page. */
+.site-header {
+    background-color: var(--primary); /* Use the main website colour. */
+    border-bottom: 4px solid var(--accent); /* Add an accent line. */
+}
+
+/* Arrange the brand and navigation in one row. */
+.header-inner {
+    display: flex; /* Place children next to each other. */
+    align-items: center; /* Align children vertically. */
+    justify-content: space-between; /* Push them to opposite sides. */
+    min-height: 80px; /* Give the header a useful minimum height. */
+    gap: 2rem; /* Add space between the brand and navigation. */
+}
+
+/* Style the clickable organisation name. */
+.brand {
+    color: #ffffff; /* Display the brand in white. */
+    font-size: 1.25rem; /* Make it larger than normal text. */
+    font-weight: bold; /* Emphasise the organisation name. */
+}
+
+/* Arrange the main navigation links. */
+.site-nav {
+    display: flex; /* Place links in one row. */
+    gap: 0.35rem; /* Add a small gap between links. */
+}
+
+/* Style each link inside the main navigation. */
+.site-nav a {
+    padding: 0.7rem 0.9rem; /* Add clickable space inside each link. */
+    border-radius: 6px; /* Round the link corners. */
+    color: #ffffff; /* Display normal navigation text in white. */
+    font-weight: bold; /* Make navigation labels easy to identify. */
+}
+
+/* Apply when a mouse pointer is over a navigation link. */
+.site-nav a:hover {
+    background-color: var(--accent); /* Change to the accent background. */
+    color: var(--primary-dark); /* Use dark text for contrast. */
+    transform: translateY(-2px); /* Move the link slightly upward. */
+}
+
+/* Apply when a keyboard user selects a navigation link. */
+.site-nav a:focus-visible {
+    outline: 3px solid #ffffff; /* Draw a visible keyboard focus outline. */
+    outline-offset: 2px; /* Add space around the outline. */
+}
+
+/* Highlight the link for the page currently open. */
+.site-nav a[aria-current="page"] {
+    background-color: #ffffff; /* Use a white active-link background. */
+    color: var(--primary); /* Use the main colour for active-link text. */
+}
+
+/* Style the short introduction at the top of the page. */
+.page-header {
+    padding: 4rem 0; /* Add vertical space inside the section. */
+    background-color: var(--primary-dark); /* Use the dark website colour. */
+    color: #ffffff; /* Make inherited text white. */
+    text-align: center; /* Centre the introduction. */
+}
+
+/* Style the small line above the main heading. */
+.eyebrow {
+    margin-bottom: 0.5rem; /* Add space below the line. */
+    color: var(--accent); /* Use the accent colour. */
+    font-weight: bold; /* Emphasise the text. */
+    text-transform: uppercase; /* Display the text in capital letters. */
+}
+
+/* Style the main Services heading. */
+.page-header h1 {
+    margin: 0 0 1rem; /* Remove top space and add bottom space. */
+    font-size: clamp(2rem, 5vw, 3.25rem); /* Make the size responsive. */
+}
+
+/* Keep the introductory paragraph readable and centred. */
+.page-introduction {
+    max-width: 700px; /* Stop the paragraph from becoming too wide. */
+    margin: 0 auto; /* Centre the paragraph. */
+}
+
+/* Add space around the main Services content. */
+.services-section {
+    padding: 4rem 0; /* Add vertical section spacing. */
+}
+
+/* Style the heading above the cards. */
+.section-heading {
+    margin: 0 0 2rem; /* Add space below the heading. */
+    color: var(--primary); /* Use the main website colour. */
+    text-align: center; /* Centre the heading. */
+}
+
+/* Arrange four cards in a responsive grid. */
+.services-grid {
+    display: grid; /* Turn this container into CSS Grid. */
+    grid-template-columns: repeat(3, 1fr); /* Create four equal columns. */
+    gap: 1.5rem; /* Add space between cards. */
+}
+
+/* Style every repeated service card. */
+.service-card {
+    overflow: hidden; /* Keep the image inside the rounded corners. */
+    background-color: var(--surface); /* Use the stored card colour. */
+    border: 1px solid var(--border); /* Add a light card border. */
+    border-radius: 10px; /* Round the card corners. */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12); /* Add depth. */
+    transition: transform 0.25s ease; /* Animate the card hover movement. */
+}
+
+/* Apply while the mouse is over a service card. */
+.service-card:hover {
+    transform: translateY(-5px); /* Lift the card slightly upward. */
+}
+
+/* Give every service image the same size. */
+.service-image {
+    display: block; /* Remove the inline gap below an image. */
+    width: 100%; /* Fill the complete card width. */
+    height: 180px; /* Give all four images equal height. */
+    object-fit: cover; /* Crop images without stretching them. */
+}
+
+/* Add internal spacing around each card's text. */
+.service-content {
+    padding: 1.25rem; /* Add space between text and card edges. */
+}
+
+/* Style each service name. */
+.service-content h3 {
+    margin: 0 0 0.5rem; /* Remove top space and add bottom space. */
+    color: var(--primary); /* Use the main website colour. */
+}
+
+/* Remove unnecessary space below each service description. */
+.service-content p {
+    margin-bottom: 0; /* Remove the final paragraph's bottom margin. */
+}
+
+/* Style the footer at the bottom of the Services page. */
+.site-footer {
+    padding: 2rem 0; /* Add internal footer spacing. */
+    background-color: var(--primary-dark); /* Use the dark website colour. */
+    color: #ffffff; /* Display footer text in white. */
+    text-align: center; /* Centre the footer text. */
+}
+
+/* Remove the paragraph's default footer margin. */
+.site-footer p {
+    margin: 0; /* Remove unwanted space around the copyright. */
+}
+
+/* Tablet rules apply when the screen is 900px or narrower. */
+@media (max-width: 900px) {
+    /* Stack the brand above the navigation on tablets. */
+    .header-inner {
+        flex-direction: column; /* Change the header from a row to a column. */
+        padding: 1rem 0; /* Add space inside the stacked header. */
+    }
+
+    /* Allow tablet navigation links to move onto another line. */
+    .site-nav {
+        justify-content: center; /* Centre the links. */
+        flex-wrap: wrap; /* Wrap links when space is limited. */
+    }
+
+    /* Change the four service cards into two columns. */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* Display two equal columns. */
+    }
+}
+
+/* Phone rules apply when the screen is 600px or narrower. */
+@media (max-width: 600px) {
+    /* Stack the navigation links vertically. */
+    .site-nav {
+        width: 100%; /* Fill the available phone width. */
+        flex-direction: column; /* Place links below one another. */
+    }
+
+    /* Make every phone navigation link easy to tap. */
+    .site-nav a {
+        width: 100%; /* Make each link fill the navigation width. */
+        text-align: center; /* Centre each link label. */
+    }
+
+    /* Display one service card per row on phones. */
+    .services-grid {
+        grid-template-columns: 1fr; /* Change the grid to one column. */
+    }
+}
+.footer-social-icons {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.social-icon-btn:hover {
+  background-color: var(--accent);
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Institutional Footer Styling */
+.site-footer {
+  background-color: var(--primary-dark);
+  color: #ffffff;
+  padding: 3rem 0 1.5rem;
+  font-size: 0.9rem;
+  text-align: left; /* Overrides default centered text */
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-heading {
+  color: var(--accent);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-description {
+  color: #d8e2ec;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+}
+
+.footer-reg {
+  font-size: 0.8rem;
+  color: #a0b2c6;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a,
+.footer-contact-link,
+.footer-legal-links a,
+.footer-socials a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer-links a:hover,
+.footer-contact-link:hover,
+.footer-legal-links a:hover,
+.footer-socials a:hover {
+  color: var(--accent);
+}
+
+.footer-socials {
+  margin-top: 1rem;
+}
+
+.footer-divider {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 1.5rem 0;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #a0b2c6;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 1.2rem;
+}
+
+/* Tablet & Mobile Breakpoints */
+@media (max-width: 900px) {
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-columns {
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+:root {
+  /* Core Brand Colors */
+  --primary: #1D5335;          /* Deep Forest Green - High contrast for headings & header */
+  --primary-hover: #143C26;    /* Darker Green - Hover states for main links */
+  --accent: #2E7D32;           /* Energetic Grass Green - Interactive elements & active states */
+  --action: #2563EB;           /* Clear Web Blue - High-visibility call-to-action buttons */
+  --action-hover: #1D4ED8;     /* Darker Blue - CTA button hover states */
+
+  /* Surface & Background Colors */
+  --bg-page: #F8FAF8;          /* Ultra-soft Off-White - Prevents bright white glare/eye fatigue */
+  --bg-card: #FFFFFF;          /* Pure White - Keeps cards and content containers crisp */
+  --bg-subtle: #EBF2ED;        /* Light Tint - Subtle section backgrounds & callout boxes */
+
+  /* Accessible Typography & Borders */
+  --text-main: #1C241F;        /* Near-Black Charcoal - High contrast body text */
+  --text-muted: #4B5563;       /* Slate Gray - Supporting details & secondary info */
+  --border-subtle: #E2E8F0;    /* Light Gray - Soft divisions between cards */
+  --border-focus: #2563EB;     /* Focus Blue - High visibility outline for keyboard navigation */
+}
+/* Ensure the main header container lays out brand and nav side-by-side */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Align the logo image and brand text horizontally */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Space between logo image and text */
+  text-decoration: none;
+  color: inherit; /* Inherits text color from parent */
+}
+
+/* Constrain logo dimensions */
+.brand-logo {
+  height: 40px; /* Adjust height to fit your design */
+  width: auto;  /* Maintains image aspect ratio */
+  object-fit: contain;
+}
+
+/* Align navigation links horizontally in line with the brand */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Space between nav links */
+}
+/* Container layout for centered presentation */
+.hero-feature-container {
+  max-width: 800px; /* Limits width so content doesn't stretch too wide */
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+/* Centered feature image styles */
+.hero-feature-image {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover; /* Keeps image proportional without distortion */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Text block below image */
+.hero-feature-content {
+  margin-top: 1.5rem;
+}
+
+.hero-feature-content h2 {
+  color: #2e7d32; /* Match your brand green */
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-feature-content p {
+  color: #4a5568;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
